@@ -1,7 +1,7 @@
 "use client";
 
-import {HomePage } from "@/components";
 import { ThemeProvider } from "@/components/provider";
+import HomePage from "@/features/home";
 
 const Home = () => {
   return (

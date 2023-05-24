@@ -19,3 +19,12 @@ export type DemoProps = {
 export type HeroPageProps = {
   status: "success" | "failure" | "loading"; // union of string literals
 };
+
+export type ItemProps = {
+  details: string;
+  image: string;
+  link: string;
+  title: string;
+  type: number;
+  active: boolean;
+};

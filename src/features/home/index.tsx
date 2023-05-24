@@ -1,12 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
-'use client'
-import {
-  createStyles,
-  Text,
-  rem,
-  Card,
-} from "@mantine/core";
-import { IconGauge, IconUser, IconCookie } from "@tabler/icons-react";
+import { createStyles, rem } from "@mantine/core";
+import About from "./components/about";
+import Hero from "./components/hero";
+import ProjectItems from "./components/projects";
+import EmailBanner from "./components/banner";
+import Frameworks from "./components/frameworks";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -115,30 +113,8 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const mockdata = [
-  {
-    title: "Collaborative to the team",
-    description:
-      "Collaboration makes work easier and relaxing as you share knowledge between teams",
-    icon: IconGauge,
-  },
-  {
-    title: "Up unto the trend in web development",
-    description:
-      "New and popular frameworks arises and as a frontend dev, it is very important to have access to this new framework and techs",
-    icon: IconUser,
-  },
-  {
-    title: "Willingness to learn new technologies",
-    description:
-      "I am not relying on my current skill instead, I always seek for a new skill to develop",
-    icon: IconCookie,
-  },
-];
 
-
-
-const App = () => {
+const HomePage = () => {
   const { classes, theme } = useStyles();
 
   // if (props.status === 'success') {
@@ -149,11 +125,12 @@ const App = () => {
 
   return (
     <>
-      {/* <Hero/>
-      <About/>
-      <ProjectItems/> */}
-      <h1>home</h1>
+      <Hero />
+      <About />
+      <ProjectItems />
+      <EmailBanner />
+      <Frameworks/>
     </>
   );
-}
- export default App
+};
+export default HomePage;

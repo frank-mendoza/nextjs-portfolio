@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { CustomButton } from "@/components";
 import {
   createStyles,
   Title,
@@ -8,10 +9,24 @@ import {
   rem,
   Card,
 } from "@mantine/core";
-import { IconGauge, IconUser, IconCookie } from "@tabler/icons-react";
+import bg from "@/assets/images/stacked-waves-haikei.svg";
+import bgDark from "@/assets/images/stacked-waves-haikei-dark.svg";
 import { useRouter } from "next/navigation";
+import { heroData } from "@/mockData";
 
 const useStyles = createStyles((theme) => ({
+  imageWrap: {
+    height: "100%",
+    width: "100%",
+    backgroundImage:
+      theme.colorScheme === "dark" ? `url(${bgDark.src})` : `url(${bg.src})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    marginTop: rem(-56),
+    paddingTop: rem(140),
+    paddingBottom: rem(120),
+  },
   wrapper: {
     position: "relative",
     paddingTop: rem(40),
@@ -61,12 +76,15 @@ const useStyles = createStyles((theme) => ({
   },
 
   highlight: {
-    color:
-      theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 4 : 2],
+    color: theme.colors[theme.primaryColor][2],
   },
 
   description: {
     textAlign: "center",
+    color:
+      theme.colorScheme === "dark"
+        ? theme.primaryColor[1]
+        : theme.colors.dark[4],
 
     [theme.fn.smallerThan("xs")]: {
       textAlign: "left",
@@ -118,30 +136,9 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const mockdata = [
-  {
-    title: "Collaborative to the team",
-    description:
-      "Collaboration makes work easier and relaxing as you share knowledge between teams",
-    icon: IconGauge,
-  },
-  {
-    title: "Up unto the trend in web development",
-    description:
-      "New and popular frameworks arises and as a frontend dev, it is very important to have access to this new framework and techs",
-    icon: IconUser,
-  },
-  {
-    title: "Willingness to learn new technologies",
-    description:
-      "I am not relying on my current skill instead, I always seek for a new skill to develop",
-    icon: IconCookie,
-  },
-];
-
 const Hero = () => {
   const { classes, theme } = useStyles();
-  const router = useRouter()
+  const router = useRouter();
 
   // if (props.status === 'success') {
   //   console.log('success')
@@ -149,7 +146,7 @@ const Hero = () => {
   //   console.log('failure')
   // } else if (props.status === 'loading') console.log('loading')
 
-  const features = mockdata.map((feature) => (
+  const features = heroData.map((feature) => (
     <Card
       key={feature.title}
       shadow="md"
@@ -172,7 +169,7 @@ const Hero = () => {
   ));
 
   return (
-    <>
+    <div className={classes.imageWrap}>
       <Container className={classes.wrapper} size={1000}>
         <div className={classes.inner}>
           <Title className={classes.title}>
@@ -182,11 +179,12 @@ const Hero = () => {
             </Text>{" "}
           </Title>
 
-          <Container p={0} size={600}>
-            <Text size="lg" color="dimmed" className={classes.description}>
+          <Container p={0} size={500}>
+            <Text size="lg" className={classes.description}>
               Build web user interface with the use of popular frameworks like
-              React js, Redux Toolkit and more. Reach me if you're interested,
-              just click message.
+              React js, Redux Toolkit and more.
+               {/* Reach me if you're interested,
+              just click message. */}
             </Text>
           </Container>
 
@@ -196,21 +194,21 @@ const Hero = () => {
               size="lg"
               variant="default"
               color="gray"
-              onClick={() => router.push('/projects')}
+              onClick={() => router.push("/contact")}
             >
               Message
             </Button>
-            <Button className={classes.control}  variant="gradient"
-              gradient={{ deg: 133, from: "#FFF3BF", to: "#FCC419" }}
+            <CustomButton
+              className={classes.control}
+              text="Check Projects"
               size="lg"
-              radius="md">
-              Check Projects
-            </Button>
+              onClick={() => router.push("/projects")}
+            />
           </div>
         </div>
       </Container>
-    </>
+    </div>
   );
-}
+};
 
-export default Hero
+export default Hero;

@@ -2,13 +2,13 @@ import {
   createStyles,
   Text,
   Title,
-  TextInput,
-  Button,
   Image,
   rem,
-  Container
+  Container,
 } from "@mantine/core";
 import image from "@/assets/images/email-banner.svg";
+import { CustomButton } from "@/components";
+import { useRouter } from "next/navigation";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -76,28 +76,34 @@ const useStyles = createStyles((theme) => ({
 
 const EmailBanner = () => {
   const { classes } = useStyles();
+  const router = useRouter()
   return (
-    <Container className={classes.wrapper} size={1000} mt={30}>
-      <div className={classes.body}>
-        <Title className={classes.title}>Wait a minute...</Title>
-        <Text fw={500} fz="lg" mb={5}>
-          Subscribe to our newsletter!
-        </Text>
-        <Text fz="sm" c="dimmed">
-          You will never miss important product updates, latest news and
-          community QA sessions. Our newsletter is once a week, every Sunday.
-        </Text>
+    <>
+      <Container className={classes.wrapper} size={1000} mt={30}>
+        <div className={classes.body}>
+          <Title className={classes.title}>Need a developer?</Title>
+          <Text fw={500} fz="lg" mb={5}>
+            Send a message now!
+          </Text>
+          <Text fz="sm" c="dimmed">
+            Let us share our thoughts for your desired project and make it happen 
+          </Text>
 
-        <div className={classes.controls}>
-          <TextInput
-            placeholder="Your email"
-            classNames={{ input: classes.input, root: classes.inputWrapper }}
-          />
-          <Button className={classes.control}>Subscribe</Button>
+          <div className={classes.controls}>
+            {/* <TextInput
+              id="email"
+              placeholder="Your email"
+              classNames={{ input: classes.input, root: classes.inputWrapper }}
+            /> */}
+            <CustomButton
+              text="Contact now"
+              onClick={() => router.push('/contact')}
+            />
+          </div>
         </div>
-      </div>
-      <Image src={image.src} className={classes.image} alt="" />
-    </Container>
+        <Image src={image.src} className={classes.image} alt="" />
+      </Container>
+    </>
   );
 };
 
