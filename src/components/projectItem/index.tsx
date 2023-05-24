@@ -45,7 +45,6 @@ const useStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan("xs")]: {
       fontSize: rem(28),
-      textAlign: "left",
     },
   },
   imageWrapper: {
