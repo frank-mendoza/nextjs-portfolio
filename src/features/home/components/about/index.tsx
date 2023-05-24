@@ -69,7 +69,7 @@ const About = () => {
     <Container className={classes.wrapper} size={1000}>
       <div className={classes.inner}>
         <Group position="center">
-          <Badge variant="filled" size="lg">
+          <Badge variant="filled" className={classes.badge} size="lg">
             Best thiing to know
           </Badge>
         </Group>

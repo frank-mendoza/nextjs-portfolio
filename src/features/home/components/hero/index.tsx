@@ -26,6 +26,9 @@ const useStyles = createStyles((theme) => ({
     marginTop: rem(-56),
     paddingTop: rem(140),
     paddingBottom: rem(120),
+    [theme.fn.smallerThan("sm")]: {
+      height: "calc(100vh + 56px)",
+    },
   },
   wrapper: {
     position: "relative",
@@ -33,7 +36,7 @@ const useStyles = createStyles((theme) => ({
     paddingBottom: rem(80),
 
     [theme.fn.smallerThan("sm")]: {
-      paddingTop: rem(80),
+      paddingTop: rem(100),
       paddingBottom: rem(60),
     },
   },
@@ -41,23 +44,6 @@ const useStyles = createStyles((theme) => ({
   inner: {
     position: "relative",
     zIndex: 1,
-  },
-
-  dots: {
-    position: "absolute",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[5]
-        : theme.colors.gray[1],
-
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
-    },
-  },
-
-  dotsLeft: {
-    left: 0,
-    top: 0,
   },
 
   title: {
@@ -183,7 +169,7 @@ const Hero = () => {
             <Text size="lg" className={classes.description}>
               Build web user interface with the use of popular frameworks like
               React js, Redux Toolkit and more.
-               {/* Reach me if you're interested,
+              {/* Reach me if you're interested,
               just click message. */}
             </Text>
           </Container>
