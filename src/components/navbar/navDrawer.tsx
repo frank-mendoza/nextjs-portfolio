@@ -4,11 +4,10 @@ import {
   createStyles,
   Stack,
   rem,
-  Drawer,
-  Image,
   getStylesRef,
   Group,
   ActionIcon,
+  Drawer,
 } from "@mantine/core";
 import {
   Icon24Hours,
@@ -18,13 +17,9 @@ import {
   IconBrandReact,
   IconBrandSkype,
   IconBrandWhatsapp,
-  IconFingerprint,
   IconHome,
-  IconLogout,
   IconMail,
-  IconSwitchHorizontal,
 } from "@tabler/icons-react";
-import logo from "@/assets/images/logo.svg";
 import { useRouter } from "next/navigation";
 import { GithubIcon } from "@mantine/ds";
 
