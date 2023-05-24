@@ -1,3 +1,4 @@
+'use client'
 export const metadata = {
   title: "Frank Mendoza",
   description: "Portfolio",
