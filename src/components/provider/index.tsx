@@ -16,7 +16,7 @@ type ProviderProps = {
 };
 
 const defaultState = {
-  loading: false,
+  loading: true,
 };
 
 export function ThemeProvider({ children }: ProviderProps) {
@@ -51,7 +51,7 @@ export function ThemeProvider({ children }: ProviderProps) {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
 
   return (
@@ -82,21 +82,28 @@ export function ThemeProvider({ children }: ProviderProps) {
           primaryColor: "brand",
         }}
       >
-        <HeaderMiddle links={links} />
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-          {loading ? (
-            <LoadingOverlay
-              visible={loading}
-              overlayBlur={10}
-              exitTransitionDuration={3}
-              loader={<BounceLoader color="#FCC419" />}
-              style={{ overflow: "hidden" }}
-            />
-          ) : (
-            children
-          )}
-        </main>
-        <FooterSocial />
+        {/* <LoadingOverlay
+          visible={loading}
+          overlayBlur={10}
+          exitTransitionDuration={3}
+          loader={<BounceLoader color="#FCC419" />}
+          style={{
+            overflow: "hidden",
+            display: "flex",
+            alignContent: "center",
+            justifyContent: "center",
+            height: "100vh",
+          }}
+        /> */}
+        {!loading && (
+          <>
+            <HeaderMiddle links={links} />
+            <main className="flex min-h-screen flex-col items-center justify-between p-24">
+              {children}
+            </main>
+            <FooterSocial />
+          </>
+        )}
       </MantineProvider>
     </ColorSchemeProvider>
   );
