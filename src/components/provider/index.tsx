@@ -16,8 +16,8 @@ type ProviderProps = {
 };
 
 const defaultState = {
-  loading: false
-}
+  loading: false,
+};
 
 export function ThemeProvider({ children }: ProviderProps) {
   const [loadingOverlay] = useDisclosure(false);
@@ -39,14 +39,20 @@ export function ThemeProvider({ children }: ProviderProps) {
   ];
 
   useEffect(() => {
-    if (loadingOverlay) {
+    if (loading) {
       // Disable scrolling when the component mounts
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-    setLoading(false);
-  }, [loadingOverlay, loading]);
+  }, [loading]);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   return (
     <ColorSchemeProvider
