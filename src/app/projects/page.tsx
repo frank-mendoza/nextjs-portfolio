@@ -1,6 +1,5 @@
 "use client";
 import { ProjectItem } from "@/components";
-import { ThemeProvider } from "@/components/provider";
 import { Container } from "@mantine/core";
 
 import { getDatabase, onValue, ref } from "firebase/database";
@@ -29,11 +28,9 @@ const Projects = () => {
   }, [db]);
 
   return (
-    <ThemeProvider>
-      <Container size={1000} py="xl">
-        <ProjectItem list={dataList} pageType="project" />
-      </Container>
-    </ThemeProvider>
+    <Container size={1000} py="xl">
+      <ProjectItem list={dataList} pageType="project" />
+    </Container>
   );
 };
 

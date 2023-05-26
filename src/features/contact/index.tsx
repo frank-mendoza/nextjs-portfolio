@@ -1,3 +1,5 @@
+'use client'
+
 import { CustomButton } from "@/components";
 import {
   Paper,
@@ -22,12 +24,12 @@ const useStyles = createStyles((theme) => {
       backgroundColor:
         theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
       borderRadius: theme.radius.lg,
-      padding: 0,
-      // border: `${rem(1)} solid ${
-      //   theme.colorScheme === "dark"
-      //     ? theme.colors.dark[8]
-      //     : theme.colors.gray[2]
-      // }`,
+      padding: 10,
+      border: `${rem(1)} solid ${
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[8]
+          : theme.colors.gray[2]
+      }`,
 
       [BREAKPOINT]: {
         flexDirection: "column",
