@@ -99,18 +99,17 @@ const ProjectItem = ({ pageType, list }: ProjectsProps) => {
                 {article.title}
               </Text>
               <Text
-                color="dimmed"
                 size="xs"
                 transform="capitalize"
-                weight={700}
-                mt={5}
+                weight={500}
+                // mt={5}
               >
                 {article?.details.split(",").map((strng) => (
                   <Badge
                     key={strng}
-                    mr="sm"
-                    mt="xs"
-                    size="sm"
+                    mr={10}
+                    mt={10}
+                    size="xs"
                     color='yellow'
                     variant="outline"
                     // gradient={{ from: "blue", to: "red" }}

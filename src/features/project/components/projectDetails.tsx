@@ -148,8 +148,9 @@ const ProjectDetails = () => {
             {itemDetails?.details.split(",").map((strng) => (
               <Badge
                 key={strng}
-                mr="sm"
-                mt="sm"
+                mr={10}
+                mt={10}
+                size="xs"
                 color="yellow"
                 variant="outline"
                 // variant="gradient"
