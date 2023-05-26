@@ -25,6 +25,7 @@ export type ItemProps = {
   image: string;
   link: string;
   title: string;
+  id: string;
   type: number;
   active: boolean;
 };

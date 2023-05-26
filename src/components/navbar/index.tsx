@@ -27,6 +27,7 @@ import { GithubIcon } from "@mantine/ds";
 import Logo from "@/assets/images/logo.svg";
 import { useRouter } from "next/navigation";
 import { NavbarDrawer } from "./navDrawer";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -60,7 +61,7 @@ const useStyles = createStyles((theme) => ({
   social: {
     width: rem(260),
     [theme.fn.smallerThan("sm")]: {
-      width: 'auto'
+      width: "auto",
     },
   },
 
@@ -98,7 +99,7 @@ const useStyles = createStyles((theme) => ({
       backgroundColor:
         theme.colorScheme === "dark"
           ? theme.colors.yellow[1]
-          : theme.colors.gray[0],
+          : theme.colors.yellow[0],
       color:
         theme.colorScheme === "dark"
           ? theme.colors.dark[5]
@@ -109,40 +110,39 @@ const useStyles = createStyles((theme) => ({
 
 interface HeaderMiddleProps {
   links: { link: string; label: string }[];
-  setLoadingOverlay: any;
 }
 
-const HeaderMiddle = ({ links, setLoadingOverlay }: HeaderMiddleProps) => {
+const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
   const router = useRouter();
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened] = useDisclosure(false);
   const [openDrawer, { open, close }] = useDisclosure(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
-  const [active, setActive] = useState(links[0].link);
+  const [active, setActive] = useState('');
   const { classes, cx } = useStyles();
 
   useEffect(() => {
     const path = window.location.pathname;
-    path === "/" ? "/home" : "path";
+    path === links[0].link ? links[0].link : path;
     setActive(path);
-  }, [active]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
       href={link.link}
       className={cx(classes.link, {
         [classes.linkActive]: active === link.link,
       })}
-      onClick={(event) => {
-        event.preventDefault();
-        router.push(link.link);
+      onClick={() => {
         setActive(link.link);
-        setLoadingOverlay(true);
+        router.push(link.link);
+        // setLoadingOverlay();
       }}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (

@@ -1,6 +1,7 @@
 import { ItemProps } from "@/types/index.types";
 import {
   AspectRatio,
+  Badge,
   Box,
   Card,
   Image,
@@ -10,6 +11,7 @@ import {
   createStyles,
   rem,
 } from "@mantine/core";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type ProjectsProps = {
@@ -23,6 +25,7 @@ const useStyles = createStyles((theme) => ({
     border: `${rem(1)} solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[3]
     }`,
+    cursor: "pointer",
 
     "&:hover": {
       transform: "scale(1.01)",
@@ -32,7 +35,6 @@ const useStyles = createStyles((theme) => ({
 
   title: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 600,
   },
   header: {
     textAlign: "center",
@@ -57,6 +59,7 @@ const useStyles = createStyles((theme) => ({
 
 const ProjectItem = ({ pageType, list }: ProjectsProps) => {
   const { classes } = useStyles();
+  const router = useRouter();
   const [dataList, setDataList] = useState<ItemProps[] | []>([]);
 
   useEffect(() => {
@@ -86,15 +89,13 @@ const ProjectItem = ({ pageType, list }: ProjectsProps) => {
               key={article.title}
               p="md"
               radius="md"
-              component="a"
-              href={article.link}
-              target="_blank"
               className={classes.card}
+              onClick={() => router.push(`/projects/${article.id}`)}
             >
               <AspectRatio ratio={1920 / 1080} className={classes.imageWrapper}>
                 <Image src={article.image} alt="" fit="scale-down" />
               </AspectRatio>
-              <Text className={classes.title} mt="md">
+              <Text className={classes.title} mt="md" weight={700}>
                 {article.title}
               </Text>
               <Text
@@ -104,7 +105,19 @@ const ProjectItem = ({ pageType, list }: ProjectsProps) => {
                 weight={700}
                 mt={5}
               >
-                {article.details}
+                {article?.details.split(",").map((strng) => (
+                  <Badge
+                    key={strng}
+                    mr="sm"
+                    mt="xs"
+                    size="sm"
+                    color='yellow'
+                    variant="outline"
+                    // gradient={{ from: "blue", to: "red" }}
+                  >
+                    {strng}
+                  </Badge>
+                ))}
               </Text>
             </Card>
           ))}

@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/provider";
 
 export const metadata = {
   title: "Frank Mendoza",
@@ -11,7 +12,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={{ padding: 0, margin: 0 }}>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

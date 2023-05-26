@@ -1,23 +1,19 @@
-import { Button } from "@mantine/core";
+import { Button, useMantineColorScheme } from "@mantine/core";
 import React from "react";
-
-type GradientProps = {
-  deg: number;
-  from: string;
-  to: string;
-};
 
 type ButtonProps = {
   className?: string;
   text: string;
   size?: string;
   radius?: string;
-  onClick: (event: React.MouseEvent) => void;
+  onClick?: (event: React.MouseEvent) => void;
 };
 const CustomButton = ({ className, text, onClick, ...props }: ButtonProps) => {
+  const { colorScheme } = useMantineColorScheme();
   return (
     <Button
-      variant="gradient"
+      variant={colorScheme === 'dark' ? 'outline' : "gradient"}
+      color="yellow"
       gradient={{ deg: 133, from: "#e67500", to: "#ecbd2c" }}
       onClick={onClick}
       className={className}

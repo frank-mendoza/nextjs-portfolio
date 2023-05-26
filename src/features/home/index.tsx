@@ -113,23 +113,15 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-
 const HomePage = () => {
   const { classes, theme } = useStyles();
-
-  // if (props.status === 'success') {
-  //   console.log('success')
-  // } else if (props.status === 'failure') {
-  //   console.log('failure')
-  // } else if (props.status === 'loading') console.log('loading')
-
   return (
     <>
       <Hero />
       <About />
       <ProjectItems />
       <EmailBanner />
-      <Frameworks/>
+      <Frameworks />
     </>
   );
 };
