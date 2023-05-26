@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { FooterSocial, HeaderMiddle } from "@/components";
 import {
@@ -8,15 +8,20 @@ import {
   MantineProvider,
 } from "@mantine/core";
 import { useDisclosure, useHotkeys, useLocalStorage } from "@mantine/hooks";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BounceLoader } from "react-spinners";
 
 type ProviderProps = {
   children: React.ReactNode;
 };
 
+const defaultState = {
+  loading: false
+}
+
 export function ThemeProvider({ children }: ProviderProps) {
   const [loadingOverlay] = useDisclosure(false);
+  const [loading, setLoading] = useState(defaultState.loading);
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: "mantine-color-scheme",
     defaultValue: "light",
@@ -40,7 +45,8 @@ export function ThemeProvider({ children }: ProviderProps) {
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [loadingOverlay]);
+    setLoading(false);
+  }, [loadingOverlay, loading]);
 
   return (
     <ColorSchemeProvider
@@ -70,16 +76,19 @@ export function ThemeProvider({ children }: ProviderProps) {
           primaryColor: "brand",
         }}
       >
-        <LoadingOverlay
-          visible={loadingOverlay}
-          overlayBlur={2}
-          exitTransitionDuration={3}
-          loader={<BounceLoader color="#FCC419" />}
-          style={{ overflow: "hidden" }}
-        />
         <HeaderMiddle links={links} />
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
-          {children}
+          {loading ? (
+            <LoadingOverlay
+              visible={loading}
+              overlayBlur={10}
+              exitTransitionDuration={3}
+              loader={<BounceLoader color="#FCC419" />}
+              style={{ overflow: "hidden" }}
+            />
+          ) : (
+            children
+          )}
         </main>
         <FooterSocial />
       </MantineProvider>
