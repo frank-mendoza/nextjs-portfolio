@@ -118,14 +118,14 @@ const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
   const [openDrawer, { open, close }] = useDisclosure(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState("");
   const { classes, cx } = useStyles();
 
   useEffect(() => {
     const path = window.location.pathname;
     path === links[0].link ? links[0].link : path;
     setActive(path);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const items = links.map((link) => (
@@ -196,6 +196,7 @@ const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
             <ActionIcon
               size="lg"
               component="a"
+              target="_blank"
               className={classes.linkIcons}
               href="https://github.com/frank-mendoza"
             >
@@ -204,6 +205,7 @@ const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
             <ActionIcon
               size="lg"
               component="a"
+              target="_blank"
               className={classes.linkIcons}
               href="https://linkedin.com/in/frank-mendoza-382213207"
             >
@@ -212,6 +214,7 @@ const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
             <ActionIcon
               size="lg"
               component="a"
+              target="_blank"
               className={classes.linkIcons}
               href="https://m.me/fank.mendoza.965580"
             >
@@ -220,6 +223,7 @@ const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
             <ActionIcon
               size="lg"
               component="a"
+              target="_blank"
               className={classes.linkIcons}
               href="https://wa.me/639506648307"
             >
@@ -228,6 +232,7 @@ const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
             <ActionIcon
               size="lg"
               component="a"
+              target="_blank"
               className={classes.linkIcons}
               href="https://join.skype.com/invite/xX4Vy6VXFaP0"
             >

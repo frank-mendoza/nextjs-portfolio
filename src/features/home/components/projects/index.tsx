@@ -35,7 +35,7 @@ const ProjectItems = () => {
     <Container size={1000} py="xl">
       <ProjectItem list={dataList} />
 
-      {dataList.length > 4 && dataList.length !== 0 && (
+      {dataList.length > 3 && dataList.length !== 0 && (
         <>
           <Group position="center">
             <CustomButton

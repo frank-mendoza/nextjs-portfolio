@@ -63,7 +63,7 @@ const ProjectItem = ({ pageType, list }: ProjectsProps) => {
   const [dataList, setDataList] = useState<ItemProps[] | []>([]);
 
   useEffect(() => {
-    const sliceData = pageType === "project" ? list : list.slice(0, 4);
+    const sliceData = pageType === "project" ? list : list.slice(0, 3);
     setDataList(sliceData);
   }, [list, pageType]);
 
@@ -81,7 +81,7 @@ const ProjectItem = ({ pageType, list }: ProjectsProps) => {
       {dataList?.length > 0 ? (
         <SimpleGrid
           mb={30}
-          cols={2}
+          cols={3}
           breakpoints={[{ maxWidth: "sm", cols: 1 }]}
         >
           {dataList.map((article) => (

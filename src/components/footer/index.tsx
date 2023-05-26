@@ -64,6 +64,7 @@ const FooterSocial = () => {
           <ActionIcon
             size="lg"
             component="a"
+            target="_blank"
             href="https://github.com/frank-mendoza"
           >
             <GithubIcon size="1.1rem" />
@@ -71,6 +72,7 @@ const FooterSocial = () => {
           <ActionIcon
             size="lg"
             component="a"
+            target="_blank"
             href="https://linkedin.com/in/frank-mendoza-382213207"
           >
             <IconBrandLinkedin size="1.1rem" stroke={1.5} />
@@ -78,16 +80,23 @@ const FooterSocial = () => {
           <ActionIcon
             size="lg"
             component="a"
+            target="_blank"
             href="https://m.me/fank.mendoza.965580"
           >
             <IconBrandMessenger size="1.1rem" stroke={1.5} />
           </ActionIcon>
-          <ActionIcon size="lg" component="a" href="https://wa.me/639506648307">
+          <ActionIcon
+            size="lg"
+            component="a"
+            target="_blank"
+            href="https://wa.me/639506648307"
+          >
             <IconBrandWhatsapp size="1.1rem" stroke={1.5} />
           </ActionIcon>
           <ActionIcon
             size="lg"
             component="a"
+            target="_blank"
             href="https://join.skype.com/invite/xX4Vy6VXFaP0"
           >
             <IconBrandSkype size="1.1rem" stroke={1.5} />
