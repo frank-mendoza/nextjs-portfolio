@@ -25,14 +25,21 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "space-between",
     paddingTop: `calc(${theme.spacing.sm} * 4)`,
     paddingBottom: `calc(${theme.spacing.xl} * 4)`,
+
+    [theme.fn.smallerThan("sm")]: {
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: "column",
+    },
   },
 
   content: {
     // maxWidth: rem(480),
     marginRight: `calc(${theme.spacing.xl} * 3)`,
 
-    [theme.fn.smallerThan("md")]: {
+    [theme.fn.smallerThan("sm")]: {
       maxWidth: "100%",
+      width: "100%",
       marginRight: 0,
     },
   },
@@ -66,6 +73,11 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === "dark"
         ? theme.colors.dark[5]
         : theme.colors.gray[0],
+
+    [theme.fn.smallerThan("sm")]: {
+      marginRight: 0,
+      width: '100%'
+    },
   },
 }));
 
@@ -102,7 +114,13 @@ const ProjectDetails = () => {
   return (
     <Container size={1000} py="xl">
       <div className={classes.inner}>
-        <Group position="center"  mr={50}  px={60} className={classes.imageWrapper}>
+        <Group
+          position="center"
+          align="center"
+          mr={50}
+          px={60}
+          className={classes.imageWrapper}
+        >
           <Image
             src={itemDetails?.image}
             //   className={classes.image}
@@ -110,6 +128,8 @@ const ProjectDetails = () => {
             //   fit="contain"
             // mt={30}
             // height={150}
+            py={50}
+            mih={150}
             width={200}
           />
         </Group>

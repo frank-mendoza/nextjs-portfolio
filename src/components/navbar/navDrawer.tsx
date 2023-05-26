@@ -11,7 +11,7 @@ import {
 } from "@mantine/core";
 import {
   Icon24Hours,
-  IconAddressBook,
+  // IconAddressBook,
   IconBrandLinkedin,
   IconBrandMessenger,
   IconBrandReact,
@@ -112,7 +112,7 @@ type NavProps = {
 const data = [
   { link: "/", label: "Home", icon: IconHome },
   { link: "/about", label: "About", icon: IconBrandReact },
-  { link: "/contact", label: "Contact", icon: IconAddressBook },
+  // { link: "/contact", label: "Contact", icon: IconAddressBook },
   { link: "/projects", label: "Projects", icon: Icon24Hours },
 ];
 
@@ -147,7 +147,7 @@ export function NavbarDrawer({ openDrawer, close }: NavProps) {
       withCloseButton={false}
       className={classes.drawer}
     >
-      <Navbar height={700} width={{ sm: 300 }} p={0}>
+      <Navbar width={{ sm: 300 }} p={0}>
         <Navbar.Section grow mt={50}>
           <Stack justify="center" spacing={0}>
             {links}
@@ -158,6 +158,7 @@ export function NavbarDrawer({ openDrawer, close }: NavProps) {
             <ActionIcon
               size="sm"
               component="a"
+              target="_blank"
               href="https://github.com/frank-mendoza"
             >
               <GithubIcon size="1.1rem" />
@@ -165,6 +166,7 @@ export function NavbarDrawer({ openDrawer, close }: NavProps) {
             <ActionIcon
               size="sm"
               component="a"
+              target="_blank"
               href="https://linkedin.com/in/frank-mendoza-382213207"
             >
               <IconBrandLinkedin size="1.1rem" stroke={1.5} />
@@ -172,6 +174,7 @@ export function NavbarDrawer({ openDrawer, close }: NavProps) {
             <ActionIcon
               size="sm"
               component="a"
+              target="_blank"
               href="https://m.me/fank.mendoza.965580"
             >
               <IconBrandMessenger size="1.1rem" stroke={1.5} />
@@ -179,6 +182,7 @@ export function NavbarDrawer({ openDrawer, close }: NavProps) {
             <ActionIcon
               size="sm"
               component="a"
+              target="_blank"
               href="https://wa.me/639506648307"
             >
               <IconBrandWhatsapp size="1.1rem" stroke={1.5} />
@@ -186,6 +190,7 @@ export function NavbarDrawer({ openDrawer, close }: NavProps) {
             <ActionIcon
               size="sm"
               component="a"
+              target="_blank"
               href="https://join.skype.com/invite/xX4Vy6VXFaP0"
             >
               <IconBrandSkype size="1.1rem" stroke={1.5} />
