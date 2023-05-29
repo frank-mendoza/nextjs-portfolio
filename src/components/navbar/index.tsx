@@ -25,7 +25,7 @@ import {
 } from "@tabler/icons-react";
 import { GithubIcon } from "@mantine/ds";
 import Logo from "@/assets/images/logo.svg";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { NavbarDrawer } from "./navDrawer";
 import Link from "next/link";
 
@@ -121,13 +121,16 @@ const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
   const [active, setActive] = useState("");
   const { classes, cx } = useStyles();
 
+  const pathname = usePathname();
+
   useEffect(() => {
     const path = window.location.pathname;
-    path === links[0].link ? links[0].link : path;
+    path === pathname ? pathname : path;
     setActive(path);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [pathname]);
 
+  console.log(active);
   const items = links.map((link) => (
     <Link
       key={link.label}
