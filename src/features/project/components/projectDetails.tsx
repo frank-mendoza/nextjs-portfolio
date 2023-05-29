@@ -5,15 +5,12 @@ import {
   Container,
   Title,
   Text,
-  List,
-  ThemeIcon,
   rem,
   Badge,
   Group,
   Button,
   useMantineColorScheme,
 } from "@mantine/core";
-import { IconCheck } from "@tabler/icons-react";
 
 import { getDatabase, onValue, ref } from "firebase/database";
 import firebaseApp from "@/firebase/firebase";
@@ -106,7 +103,10 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
       const filteredData = newData.filter(
         (status) => status.active === true && status.id === id
       );
-      setItemDetails(filteredData[0]);
+
+      if (filteredData.length > 0) {
+        setItemDetails(filteredData[0]);
+      }
     });
   }, [db, id]);
 
@@ -133,17 +133,18 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
           />
         </Group>
         <div className={classes.content}>
-          {/* <Text size={16} weight={700} tt="uppercase">
-              Project Name
-            </Text> */}
-          {/* <Text mb={0}>
-              {itemDetails?.type === 0 ? "Personal project" : "Part of a Team"}
-            </Text> */}
           <Title className={classes.title} mt={10}>
             {itemDetails?.title}
             {/* <span className={classes.highlight}>{itemDetails?.title}</span> */}
           </Title>
-          <Text color="dimmed" mt="md" maw={450}>
+
+          <Text weight={600} mt={5}>
+            {itemDetails?.company}
+          </Text>
+          <Text mt={5} size='xs' weight={500} color="dimmed">
+            Project Type: {itemDetails?.type === 0 ? "Personal" : "Member on a Team"}
+          </Text>
+          <Text color="dimmed" mt="sm" maw={450}>
             {itemDetails?.details.split(",").map((strng) => (
               <Badge
                 key={strng}
@@ -160,7 +161,7 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
             ))}
           </Text>
 
-          <List
+          {/* <List
             mt={30}
             spacing="sm"
             size="sm"
@@ -182,7 +183,7 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
               <b>No annoying focus ring</b> – focus ring will appear only when
               user navigates with keyboard
             </List.Item>
-          </List>
+          </List> */}
           <Group mt={30}>
             <Button
               size="lg"

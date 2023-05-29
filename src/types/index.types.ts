@@ -26,6 +26,7 @@ export type ItemProps = {
   link: string;
   title: string;
   id: string;
+  company: string;
   type: number;
   active: boolean;
 };
