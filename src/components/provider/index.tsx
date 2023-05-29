@@ -4,12 +4,11 @@ import { FooterSocial, HeaderMiddle } from "@/components";
 import {
   ColorScheme,
   ColorSchemeProvider,
-  LoadingOverlay,
   MantineProvider,
 } from "@mantine/core";
-import { useDisclosure, useHotkeys, useLocalStorage } from "@mantine/hooks";
+import {  useHotkeys, useLocalStorage } from "@mantine/hooks";
 import { useEffect, useState } from "react";
-import { BounceLoader } from "react-spinners";
+// import { BounceLoader } from "react-spinners";
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -20,7 +19,8 @@ const defaultState = {
 };
 
 export function ThemeProvider({ children }: ProviderProps) {
-  const [loadingOverlay] = useDisclosure(false);
+  // const [loadingOverlay] = useDisclosure(false);
+  
   const [loading, setLoading] = useState(defaultState.loading);
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: "mantine-color-scheme",

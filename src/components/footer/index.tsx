@@ -9,9 +9,9 @@ import {
 } from "@mantine/core";
 import {
   IconBrandLinkedin,
-  IconBrandMessenger,
-  IconBrandWhatsapp,
-  IconBrandSkype,
+  // IconBrandMessenger,
+  // IconBrandWhatsapp,
+  // IconBrandSkype,
   IconMail,
 } from "@tabler/icons-react";
 
@@ -55,14 +55,17 @@ const FooterSocial = () => {
     <div className={classes.footer}>
       <Container className={classes.inner}>
         <Group spacing={10}>
-          <Image src={Logo.src} alt="fm" width={30} height={30} />
-          <Text weight={700} className={classes.title} size={20}>
+          <Image src={Logo.src} alt="fm" width={20} height={20} />
+          <Text weight={700} className={classes.title} size='md'>
             FM
           </Text>
         </Group>
+        <Text color="dimmed" size="xs">
+          © 2023 Frank Dev. All rights reserved.
+        </Text>
         <Group spacing={0} className={classes.links} position="right" noWrap>
           <ActionIcon
-            size="lg"
+            size="md"
             component="a"
             target="_blank"
             href="https://github.com/frank-mendoza"
@@ -70,14 +73,14 @@ const FooterSocial = () => {
             <GithubIcon size="1.1rem" />
           </ActionIcon>
           <ActionIcon
-            size="lg"
+            size="md"
             component="a"
             target="_blank"
             href="https://linkedin.com/in/frank-mendoza-382213207"
           >
             <IconBrandLinkedin size="1.1rem" stroke={1.5} />
           </ActionIcon>
-          <ActionIcon
+          {/* <ActionIcon
             size="lg"
             component="a"
             target="_blank"
@@ -100,9 +103,9 @@ const FooterSocial = () => {
             href="https://join.skype.com/invite/xX4Vy6VXFaP0"
           >
             <IconBrandSkype size="1.1rem" stroke={1.5} />
-          </ActionIcon>
+          </ActionIcon> */}
           <ActionIcon
-            size="lg"
+            size="md"
             onClick={(e) => {
               e.preventDefault();
               window.location.href = "mailto:example@email.com";

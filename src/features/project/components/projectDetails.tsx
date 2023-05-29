@@ -18,6 +18,7 @@ import { IconCheck } from "@tabler/icons-react";
 import { getDatabase, onValue, ref } from "firebase/database";
 import firebaseApp from "@/firebase/firebase";
 import { ItemProps } from "@/types/index.types";
+import { NotFoundPage } from "@/components";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -76,14 +77,16 @@ const useStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan("sm")]: {
       marginRight: 0,
-      width: '100%'
+      width: "100%",
     },
   },
 }));
 
-export type PageParams = Record<string, string | string[]>;
+type ProjectDetailsProps = {
+  id?: string;
+};
 
-const ProjectDetails = () => {
+const ProjectDetails = ({ id }: ProjectDetailsProps) => {
   const { classes } = useStyles();
   const db = getDatabase(firebaseApp);
   const { colorScheme } = useMantineColorScheme();
@@ -91,10 +94,6 @@ const ProjectDetails = () => {
 
   useEffect(() => {
     const recordRef = ref(db, "/porfolio/");
-    const location = window.location.pathname;
-    let deletedPArt = "/projects/";
-    let regex = new RegExp(deletedPArt, "g");
-    let modifiedString = location.replace(regex, "");
 
     onValue(recordRef, (data) => {
       const record = data.val();
@@ -105,13 +104,13 @@ const ProjectDetails = () => {
       }
 
       const filteredData = newData.filter(
-        (status) => status.active === true && status.id === modifiedString
+        (status) => status.active === true && status.id === id
       );
       setItemDetails(filteredData[0]);
     });
-  }, [db]);
+  }, [db, id]);
 
-  return (
+  return itemDetails ? (
     <Container size={1000} py="xl">
       <div className={classes.inner}>
         <Group
@@ -200,6 +199,8 @@ const ProjectDetails = () => {
         </div>
       </div>
     </Container>
+  ) : (
+    <NotFoundPage />
   );
 };
 
