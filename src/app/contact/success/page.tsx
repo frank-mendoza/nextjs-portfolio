@@ -7,7 +7,7 @@ import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { CustomButton } from "@/components";
 import { useRouter } from "next/navigation";
 
-export const useStyles = createStyles(() => ({
+const useStyles = createStyles(() => ({
   textWrap: {
     flexDirection: "column",
   },
