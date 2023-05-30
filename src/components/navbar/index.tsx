@@ -130,7 +130,6 @@ const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  console.log(active);
   const items = links.map((link) => (
     <Link
       key={link.label}

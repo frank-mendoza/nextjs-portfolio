@@ -87,11 +87,11 @@ const Frameworks = () => {
             to cover you in any situation
           </Text>
 
-          <CustomButton
+          {/* <CustomButton
             text="Get started"
             size="lg"
             onClick={() => console.log("")}
-          />
+          /> */}
         </Col>
         <Col span={12} md={7}>
           <SimpleGrid

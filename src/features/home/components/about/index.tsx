@@ -15,7 +15,7 @@ import useStyles from "./About.styles";
 
 const mockdata = [
   {
-    title: "Collaborative to the team",
+    title: "Collaborative",
     description:
       "Collaboration makes work easier and relaxing as you share knowledge between teams",
     icon: IconGauge,

@@ -5,10 +5,11 @@ type ButtonProps = {
   className?: string;
   text: string;
   size?: string;
+  type?: 'button' | 'submit' | 'reset';
   radius?: string;
   onClick?: (event: React.MouseEvent) => void;
 };
-const CustomButton = ({ className, text, onClick, ...props }: ButtonProps) => {
+const CustomButton = ({ className, text, onClick,type, ...props }: ButtonProps) => {
   const { colorScheme } = useMantineColorScheme();
   return (
     <Button
@@ -17,6 +18,7 @@ const CustomButton = ({ className, text, onClick, ...props }: ButtonProps) => {
       gradient={{ deg: 133, from: "#e67500", to: "#ecbd2c" }}
       onClick={onClick}
       className={className}
+      type={type}
       {...props}
     >
       {text}

@@ -30,3 +30,10 @@ export type ItemProps = {
   type: number;
   active: boolean;
 };
+
+export type ContactProps = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}

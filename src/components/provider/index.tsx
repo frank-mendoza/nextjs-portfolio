@@ -6,7 +6,7 @@ import {
   ColorSchemeProvider,
   MantineProvider,
 } from "@mantine/core";
-import {  useHotkeys, useLocalStorage } from "@mantine/hooks";
+import { useHotkeys, useLocalStorage } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 // import { BounceLoader } from "react-spinners";
 
@@ -20,7 +20,7 @@ const defaultState = {
 
 export function ThemeProvider({ children }: ProviderProps) {
   // const [loadingOverlay] = useDisclosure(false);
-  
+
   const [loading, setLoading] = useState(defaultState.loading);
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: "mantine-color-scheme",
@@ -37,15 +37,6 @@ export function ThemeProvider({ children }: ProviderProps) {
     { label: "Projects", link: "/projects" },
     { label: "Contact", link: "/contact" },
   ];
-
-  useEffect(() => {
-    if (loading) {
-      // Disable scrolling when the component mounts
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [loading]);
 
   useEffect(() => {
     setLoading(true);
@@ -82,27 +73,14 @@ export function ThemeProvider({ children }: ProviderProps) {
           primaryColor: "brand",
         }}
       >
-        {/* <LoadingOverlay
-          visible={loading}
-          overlayBlur={10}
-          exitTransitionDuration={3}
-          loader={<BounceLoader color="#FCC419" />}
-          style={{
-            overflow: "hidden",
-            display: "flex",
-            alignContent: "center",
-            justifyContent: "center",
-            height: "100vh",
-          }}
-        /> */}
         {!loading && (
-          <>
+          <div style={{ position: "relative" }}>
             <HeaderMiddle links={links} />
             <main className="flex min-h-screen flex-col items-center justify-between p-24">
               {children}
             </main>
             <FooterSocial />
-          </>
+          </div>
         )}
       </MantineProvider>
     </ColorSchemeProvider>
