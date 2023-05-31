@@ -162,7 +162,7 @@ const Hero = () => {
             Looking for a{" "}
             <Text component="span" className={classes.highlight} inherit>
               Frontend Developer
-            </Text>{" "}
+            </Text>{" "} ?
           </Title>
 
           <Container p={0} size={500}>
