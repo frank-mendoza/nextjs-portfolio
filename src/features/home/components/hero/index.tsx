@@ -159,15 +159,15 @@ const Hero = () => {
       <Container className={classes.wrapper} size={1000}>
         <div className={classes.inner}>
           <Title className={classes.title}>
-            Experienced{" "}
+            Looking for a{" "}
             <Text component="span" className={classes.highlight} inherit>
-              Frontend Web Developer
+              Frontend Developer
             </Text>{" "}
           </Title>
 
           <Container p={0} size={500}>
             <Text size="lg" className={classes.description}>
-              Build web user interface with the use of popular frameworks like
+              Let's build web user interface with the use of these popular frameworks like
               React js, Redux Toolkit and more.
               {/* Reach me if you're interested,
               just click message. */}
@@ -182,7 +182,7 @@ const Hero = () => {
               color="gray"
               onClick={() => router.push("/contact")}
             >
-              Message
+              Contact now
             </Button>
             <CustomButton
               className={classes.control}
