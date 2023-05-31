@@ -31,7 +31,9 @@ import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   header: {
-    position: "fixed",
+    [theme.fn.smallerThan("sm")]: {
+      height: '4rem',
+    },
   },
   inner: {
     display: "flex",
@@ -108,15 +110,17 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface HeaderMiddleProps {
-  links: { link: string; label: string }[];
-}
-
-const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
+const HeaderMiddle = () => {
   const router = useRouter();
   const [opened] = useDisclosure(false);
   const [openDrawer, { open, close }] = useDisclosure(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+
+  const links = [
+    { label: "Home", link: "/" },
+    { label: "Projects", link: "/projects" },
+    { label: "Contact", link: "/contact" },
+  ];
 
   const [active, setActive] = useState("");
   const { classes, cx } = useStyles();
@@ -149,7 +153,7 @@ const HeaderMiddle = ({ links }: HeaderMiddleProps) => {
 
   return (
     <>
-      <Header height={56} mb={0}>
+      <Header height={56} mb={0} className={classes.header}>
         <Container className={classes.inner} size={1000}>
           <Burger
             opened={opened}

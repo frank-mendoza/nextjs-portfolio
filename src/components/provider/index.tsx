@@ -32,12 +32,6 @@ export function ThemeProvider({ children }: ProviderProps) {
 
   useHotkeys([["mod+J", () => toggleColorScheme()]]);
 
-  const links = [
-    { label: "Home", link: "/" },
-    { label: "Projects", link: "/projects" },
-    { label: "Contact", link: "/contact" },
-  ];
-
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -73,15 +67,7 @@ export function ThemeProvider({ children }: ProviderProps) {
           primaryColor: "brand",
         }}
       >
-        {!loading && (
-          <div style={{ position: "relative" }}>
-            <HeaderMiddle links={links} />
-            <main className="flex min-h-screen flex-col items-center justify-between p-24">
-              {children}
-            </main>
-            <FooterSocial />
-          </div>
-        )}
+        {!loading && <div style={{ position: "relative" }}> {children}</div>}
       </MantineProvider>
     </ColorSchemeProvider>
   );

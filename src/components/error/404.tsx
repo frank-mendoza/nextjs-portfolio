@@ -1,6 +1,7 @@
 "use client";
 
 import { CustomButton } from "@/components";
+import { Controls, Player } from "@lottiefiles/react-lottie-player";
 import {
   createStyles,
   Container,
@@ -14,7 +15,7 @@ import { useRouter } from "next/navigation";
 
 const useStyles = createStyles((theme) => ({
   root: {
-    paddingTop: rem(80),
+    paddingTop: 0,
     paddingBottom: rem(80),
   },
 
@@ -28,7 +29,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   content: {
-    paddingTop: rem(220),
+    paddingTop: rem(80),
     position: "relative",
     zIndex: 1,
 
@@ -81,6 +82,16 @@ const NotFoundPage = () => {
       <div className={classes.inner}>
         <Illustration className={classes.image} />
         <div className={classes.content}>
+          <Player
+            autoplay
+            loop
+            keepLastFrame
+            speed={0.6}
+            src="https://assets4.lottiefiles.com/packages/lf20_1owgihfi.json"
+            style={{ maxHeight: "250px", maxWidth: "250px" }}
+          >
+            <Controls visible={false} />
+          </Player>
           <Title className={classes.title}>Nothing to see here</Title>
           <Text
             color="dimmed"
@@ -95,7 +106,7 @@ const NotFoundPage = () => {
           <Group position="center">
             <CustomButton
               onClick={() => router.push("/")}
-              size="xl"
+              size="lg"
               text="Take me back to home page"
             />
           </Group>

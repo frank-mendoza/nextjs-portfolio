@@ -22,6 +22,7 @@ import {
 } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import { GithubIcon } from "@mantine/ds";
+import { IconAddressBook } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -112,7 +113,7 @@ type NavProps = {
 const data = [
   { link: "/", label: "Home", icon: IconHome },
   { link: "/about", label: "About", icon: IconBrandReact },
-  // { link: "/contact", label: "Contact", icon: IconAddressBook },
+  { link: "/contact", label: "Contact", icon: IconAddressBook },
   { link: "/projects", label: "Projects", icon: Icon24Hours },
 ];
 
@@ -132,6 +133,7 @@ export function NavbarDrawer({ openDrawer, close }: NavProps) {
         event.preventDefault();
         router.push(item.link);
         setActive(item.label);
+        close()
       }}
     >
       <item.icon className={classes.linkIcon} stroke={1.5} />

@@ -12,6 +12,7 @@ import {
 import { IconGauge, IconUser, IconCookie } from "@tabler/icons-react";
 
 import useStyles from "./About.styles";
+import { Controls, Player } from "@lottiefiles/react-lottie-player";
 
 const mockdata = [
   {
@@ -19,18 +20,21 @@ const mockdata = [
     description:
       "Collaboration makes work easier and relaxing as you share knowledge between teams",
     icon: IconGauge,
+    imageLink: "https://assets3.lottiefiles.com/packages/lf20_bpqri9y8.json",
   },
   {
     title: "Up unto the trend in web development",
     description:
       "New and popular frameworks arises and as a frontend dev, it is very important to have access to this new framework and techs",
     icon: IconUser,
+    imageLink: "https://assets10.lottiefiles.com/packages/lf20_AwuJJyHD4u.json",
   },
   {
     title: "Willingness to learn new technologies",
     description:
       "I am not relying on my current skill instead, I always seek for a new skill to develop",
     icon: IconCookie,
+    imageLink: "https://assets9.lottiefiles.com/packages/lf20_EGs0MA9RsH.json",
   },
 ];
 
@@ -51,11 +55,16 @@ const About = () => {
       className={classes.card}
       padding="xl"
     >
-      <feature.icon
-        size={rem(50)}
-        stroke={2}
-        color={theme.colors[theme.primaryColor][2]}
-      />
+      <Player
+        autoplay
+        loop
+        keepLastFrame
+        speed={0.6}
+        src={feature.imageLink}
+        style={{ maxHeight: "150px", maxWidth: "150px" }}
+      >
+        <Controls visible={false} />
+      </Player>
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>

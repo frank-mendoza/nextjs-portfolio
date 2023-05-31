@@ -14,12 +14,12 @@ import {
 } from "@mantine/core";
 import bg from "@/assets/images/stacked-waves-haikei.svg";
 import bgDark from "@/assets/images/stacked-waves-haikei-dark.svg";
-import { ContactIconsList } from "./contactIconList";
 import { useForm } from "@mantine/form";
 import { ContactProps } from "@/types/index.types";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MoonLoader } from "react-spinners";
+import { Controls, Player } from "@lottiefiles/react-lottie-player";
 
 const useStyles = createStyles((theme) => {
   const BREAKPOINT = theme.fn.smallerThan("sm");
@@ -90,7 +90,7 @@ const useStyles = createStyles((theme) => {
       // background: "linear-gradient(#fff, #FFF3BF)",
       // border: `${rem(1)} solid transparent`,
       padding: theme.spacing.xl,
-      flex: `0 0 ${rem(280)}`,
+      // flex: `0 0 ${rem(280)}`,
 
       [BREAKPOINT]: {
         marginBottom: theme.spacing.sm,
@@ -205,13 +205,22 @@ const Contact = () => {
       <Paper shadow="none" radius="lg">
         {error !== "" && <AlertDialog error={error} />}
         <div className={classes.wrapper}>
-          <div className={classes.contacts}>
-            <Text fz="lg" fw={700} className={classes.title}>
+          <Group align="center" className={classes.contacts} position="center">
+            {/* <Text fz="lg" fw={700} className={classes.title}>
               Contact information
-            </Text>
+            </Text> */}
 
-            <ContactIconsList variant="gradient" />
-          </div>
+            <Player
+              autoplay
+              loop
+              keepLastFrame
+              speed={0.6}
+              src="https://assets8.lottiefiles.com/packages/lf20_abqysclq.json"
+              style={{ maxHeight: "300px", maxWidth: "300px" }}
+            >
+              <Controls visible={false} />
+            </Player>
+          </Group>
 
           <form
             className={classes.form}

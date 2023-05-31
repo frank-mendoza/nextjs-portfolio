@@ -7,6 +7,7 @@ import { getDatabase, onValue, ref } from "firebase/database";
 import firebaseApp from "@/firebase/firebase";
 import { useEffect, useState } from "react";
 import { ItemProps } from "@/types/index.types";
+import NavProvider from "@/components/navProvider";
 
 const Projects = () => {
   const db = getDatabase(firebaseApp);
@@ -28,9 +29,11 @@ const Projects = () => {
   }, [db]);
 
   return (
-    <Container size={1000} py="xl">
-      <ProjectItem list={dataList} pageType="project" />
-    </Container>
+    <NavProvider>
+      <Container size={1000} py="xl">
+        <ProjectItem list={dataList} pageType="project" />
+      </Container>
+    </NavProvider>
   );
 };
 

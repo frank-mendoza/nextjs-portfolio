@@ -13,6 +13,7 @@ import bg from "@/assets/images/stacked-waves-haikei.svg";
 import bgDark from "@/assets/images/stacked-waves-haikei-dark.svg";
 import { useRouter } from "next/navigation";
 import { heroData } from "@/mockData";
+import { Controls, Player } from "@lottiefiles/react-lottie-player";
 
 const useStyles = createStyles((theme) => ({
   imageWrap: {
@@ -27,7 +28,13 @@ const useStyles = createStyles((theme) => ({
     paddingTop: rem(140),
     paddingBottom: rem(120),
     [theme.fn.smallerThan("sm")]: {
+      paddingTop: rem(200),
+      paddingBottom: rem(200),
+    },
+    [theme.fn.smallerThan("xs")]: {
       height: "calc(100vh + 56px)",
+      // // paddingTop: rem(140),
+      // paddingBottom: rem(120),
     },
   },
   wrapper: {
@@ -54,6 +61,16 @@ const useStyles = createStyles((theme) => ({
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
     marginBottom: theme.spacing.xs,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+
+    [theme.fn.smallerThan("sm")]: {
+      flexDirection: "column",
+      alignItems: 'start',
+      gap: 0,
+    },
 
     [theme.fn.smallerThan("xs")]: {
       fontSize: rem(28),
@@ -63,6 +80,11 @@ const useStyles = createStyles((theme) => ({
 
   highlight: {
     color: theme.colors[theme.primaryColor][2],
+    textShadow:
+      "-1px -1px 0 #888, 1px -1px 0 #888, -1px 1px 0 #888, 1px 1px 0 #888",
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
   },
 
   description: {
@@ -161,14 +183,24 @@ const Hero = () => {
           <Title className={classes.title}>
             Looking for a{" "}
             <Text component="span" className={classes.highlight} inherit>
-              Frontend Developer
-            </Text>{" "} ?
+              Frontend Developer{" "}
+              <Player
+                autoplay
+                loop
+                keepLastFrame
+                speed={0.6}
+                src="https://assets1.lottiefiles.com/temp/lf20_9gY9Yf.json"
+                style={{ width: "40px", height: "40px" }}
+              >
+                <Controls visible={false} />
+              </Player>
+            </Text>
           </Title>
 
           <Container p={0} size={500}>
             <Text size="lg" className={classes.description}>
-              Let's build web user interface with the use of these popular frameworks like
-              React js, Redux Toolkit and more.
+              Let's build web user interface with the use of these popular
+              frameworks like React js, Redux Toolkit and more.
               {/* Reach me if you're interested,
               just click message. */}
             </Text>
