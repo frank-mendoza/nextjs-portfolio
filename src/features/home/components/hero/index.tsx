@@ -13,7 +13,6 @@ import bg from "@/assets/images/stacked-waves-haikei.svg";
 import bgDark from "@/assets/images/stacked-waves-haikei-dark.svg";
 import { useRouter } from "next/navigation";
 import { heroData } from "@/mockData";
-import { Controls, Player } from "@lottiefiles/react-lottie-player";
 
 const useStyles = createStyles((theme) => ({
   imageWrap: {
@@ -148,12 +147,6 @@ const Hero = () => {
   const { classes, theme } = useStyles();
   const router = useRouter();
 
-  // if (props.status === 'success') {
-  //   console.log('success')
-  // } else if (props.status === 'failure') {
-  //   console.log('failure')
-  // } else if (props.status === 'loading') console.log('loading')
-
   const features = heroData.map((feature) => (
     <Card
       key={feature.title}
@@ -183,8 +176,8 @@ const Hero = () => {
           <Title className={classes.title}>
             Looking for a{" "}
             <Text component="span" className={classes.highlight} inherit>
-              Frontend Developer{" "}
-              <Player
+              Frontend Developer ?
+              {/* <Player
                 autoplay
                 loop
                 keepLastFrame
@@ -193,7 +186,7 @@ const Hero = () => {
                 style={{ width: "40px", height: "40px" }}
               >
                 <Controls visible={false} />
-              </Player>
+              </Player> */}
             </Text>
           </Title>
 
