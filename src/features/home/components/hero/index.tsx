@@ -79,8 +79,8 @@ const useStyles = createStyles((theme) => ({
 
   highlight: {
     color: theme.colors[theme.primaryColor][2],
-    textShadow:
-      "-1px -1px 0 #888, 1px -1px 0 #888, -1px 1px 0 #888, 1px 1px 0 #888",
+    // textShadow:
+    //   "-1px -1px 0 #888, 1px -1px 0 #888, -1px 1px 0 #888, 1px 1px 0 #888",
     display: "flex",
     alignItems: "center",
     gap: 10,
