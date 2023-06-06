@@ -67,7 +67,7 @@ const useStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan("sm")]: {
       flexDirection: "column",
-      alignItems: 'start',
+      alignItems: "start",
       gap: 0,
     },
 
@@ -79,8 +79,10 @@ const useStyles = createStyles((theme) => ({
 
   highlight: {
     color: theme.colors[theme.primaryColor][2],
-    // textShadow:
-    //   "-1px -1px 0 #888, 1px -1px 0 #888, -1px 1px 0 #888, 1px 1px 0 #888",
+    textShadow:
+      theme.colorScheme === "dark"
+        ? ""
+        : "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff",
     display: "flex",
     alignItems: "center",
     gap: 10,
