@@ -42,7 +42,7 @@ const useStyles = createStyles((theme) => ({
     paddingBottom: rem(80),
 
     [theme.fn.smallerThan("sm")]: {
-      paddingTop: rem(100),
+      paddingTop: rem(60),
       paddingBottom: rem(60),
     },
   },
@@ -67,12 +67,12 @@ const useStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan("sm")]: {
       flexDirection: "column",
-      alignItems: "start",
       gap: 0,
     },
-
+    
     [theme.fn.smallerThan("xs")]: {
       fontSize: rem(28),
+      alignItems: "start",
       textAlign: "left",
     },
   },
