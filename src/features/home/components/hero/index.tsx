@@ -13,6 +13,7 @@ import bg from "@/assets/images/stacked-waves-haikei.svg";
 import bgDark from "@/assets/images/stacked-waves-haikei-dark.svg";
 import { useRouter } from "next/navigation";
 import { heroData } from "@/mockData";
+import { Controls, Player } from "@lottiefiles/react-lottie-player";
 
 const useStyles = createStyles((theme) => ({
   imageWrap: {
@@ -24,8 +25,8 @@ const useStyles = createStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     marginTop: rem(-56),
-    paddingTop: rem(140),
-    paddingBottom: rem(120),
+    paddingTop: rem(100),
+    paddingBottom: rem(100),
     [theme.fn.smallerThan("sm")]: {
       paddingTop: rem(200),
       paddingBottom: rem(200),
@@ -69,7 +70,7 @@ const useStyles = createStyles((theme) => ({
       flexDirection: "column",
       gap: 0,
     },
-    
+
     [theme.fn.smallerThan("xs")]: {
       fontSize: rem(28),
       alignItems: "start",
@@ -175,31 +176,7 @@ const Hero = () => {
     <div className={classes.imageWrap}>
       <Container className={classes.wrapper} size={1000}>
         <div className={classes.inner}>
-          <Title className={classes.title}>
-            Looking for a{" "}
-            <Text component="span" className={classes.highlight} inherit>
-              Frontend Developer ?
-              {/* <Player
-                autoplay
-                loop
-                keepLastFrame
-                speed={0.6}
-                src="https://assets1.lottiefiles.com/temp/lf20_9gY9Yf.json"
-                style={{ width: "40px", height: "40px" }}
-              >
-                <Controls visible={false} />
-              </Player> */}
-            </Text>
-          </Title>
-
-          <Container p={0} size={500}>
-            <Text size="lg" className={classes.description}>
-              Let's build web user interface with the use of these popular
-              frameworks like React js, Redux Toolkit and more.
-              {/* Reach me if you're interested,
-              just click message. */}
-            </Text>
-          </Container>
+          <Title className={classes.title}>Hello there!, I'm Frank</Title>
 
           <div className={classes.controls}>
             <Button

@@ -110,7 +110,7 @@ const ProjectItem = ({ pageType, list }: ProjectsProps) => {
                     mr={10}
                     mt={10}
                     size="xs"
-                    color='yellow'
+                    color="yellow"
                     variant="outline"
                     // gradient={{ from: "blue", to: "red" }}
                   >

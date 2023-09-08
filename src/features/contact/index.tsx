@@ -205,7 +205,12 @@ const Contact = () => {
       <Paper shadow="none" radius="lg">
         {error !== "" && <AlertDialog error={error} />}
         <div className={classes.wrapper}>
-          <Group align="center" className={classes.contacts} position="center">
+          <Group
+            align="center"
+            className={classes.contacts}
+            position="center"
+            style={{ maxHeight: "300px", maxWidth: "300px" }}
+          >
             {/* <Text fz="lg" fw={700} className={classes.title}>
               Contact information
             </Text> */}

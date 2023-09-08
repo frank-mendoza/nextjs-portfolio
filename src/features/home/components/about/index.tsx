@@ -79,17 +79,16 @@ const About = () => {
       <div className={classes.inner}>
         <Group position="center">
           <Badge variant="filled" className={classes.badge} size="lg">
-            Best thiing to know
+            Best thing to know
           </Badge>
         </Group>
 
         <Title order={2} className={classes.title} ta="center" mt="sm">
-          A developer that you might be needed
+          Experienced Frontend developer
         </Title>
 
         <Text c="dimmed" className={classes.description} ta="center" mt="md">
-          Soft skills are import specially when you have multiple teammates to
-          talk to.
+          Helps business owners achieve their business goals
         </Text>
 
         <SimpleGrid

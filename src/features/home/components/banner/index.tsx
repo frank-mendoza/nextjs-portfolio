@@ -78,41 +78,25 @@ const useStyles = createStyles((theme) => ({
 
 const EmailBanner = () => {
   const { classes } = useStyles();
-  const router = useRouter()
+  const router = useRouter();
   return (
     <>
       <Container className={classes.wrapper} size={1000} mt={30}>
         <div className={classes.body}>
-          <Title className={classes.title}>Need a developer?</Title>
-          <Text fw={500} fz="lg" mb={5}>
-            Send a message now!
+          <Text className={classes.title} size="xl" weight={600}>
+            Makes user interface and api logic to work
           </Text>
-          <Text fz="sm" c="dimmed">
-            Let us share our thoughts for your desired project and make it happen 
-          </Text>
-
-          <div className={classes.controls}>
-            {/* <TextInput
-              id="email"
-              placeholder="Your email"
-              classNames={{ input: classes.input, root: classes.inputWrapper }}
-            /> */}
-            <CustomButton
-              text="Contact now"
-              onClick={() => router.push('/contact')}
-            />
-          </div>
         </div>
         <Player
-        autoplay
-        loop
-        keepLastFrame
-        speed={0.6}
-        src="https://assets4.lottiefiles.com/packages/lf20_hi95bvmx/WebdesignBg.json"
-        style={{ maxHeight: "400px", maxWidth: "400px" }}
-      >
-        <Controls visible={false} />
-      </Player>
+          autoplay
+          loop
+          keepLastFrame
+          speed={0.6}
+          src="https://assets4.lottiefiles.com/packages/lf20_hi95bvmx/WebdesignBg.json"
+          style={{ maxHeight: "400px", maxWidth: "400px" }}
+        >
+          <Controls visible={false} />
+        </Player>
       </Container>
     </>
   );

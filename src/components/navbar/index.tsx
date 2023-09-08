@@ -32,7 +32,7 @@ import Link from "next/link";
 const useStyles = createStyles((theme) => ({
   header: {
     [theme.fn.smallerThan("sm")]: {
-      height: '4rem',
+      height: "4rem",
     },
   },
   inner: {
@@ -126,10 +126,17 @@ const HeaderMiddle = () => {
   const { classes, cx } = useStyles();
 
   const pathname = usePathname();
+  console.log(pathname);
 
   useEffect(() => {
-    const path = window.location.pathname;
-    path === pathname ? pathname : path;
+    let path = pathname;
+    const projectPath = "/projects";
+
+    if (pathname.includes(projectPath)) {
+      path = projectPath;
+    }
+
+    console.log(path);
     setActive(path);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
