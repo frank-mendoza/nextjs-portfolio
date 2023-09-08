@@ -101,7 +101,7 @@ const Frameworks = () => {
             cols={4}
             spacing={30}
             mb={20}
-            breakpoints={[{ maxWidth: "md", cols: 1 }]}
+            breakpoints={[{ maxWidth: "md", cols: 2 }]}
           >
             {items(data)}
           </SimpleGrid>
