@@ -11,6 +11,7 @@ import {
   createStyles,
   rem,
 } from "@mantine/core";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -26,6 +27,7 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[3]
     }`,
     cursor: "pointer",
+    height: 350,
 
     "&:hover": {
       transform: "scale(1.01)",
@@ -85,40 +87,43 @@ const ProjectItem = ({ pageType, list }: ProjectsProps) => {
           breakpoints={[{ maxWidth: "sm", cols: 1 }]}
         >
           {dataList.map((article) => (
-            <Card
+            <Link
+              style={{ textDecoration: "none" }}
               key={article.title}
-              p="md"
-              radius="md"
-              className={classes.card}
-              onClick={() => router.push(`/projects/${article.id}`)}
+              href={`/projects/${article.id}`}
             >
-              <AspectRatio ratio={1920 / 1080} className={classes.imageWrapper}>
-                <Image src={article.image} alt="" fit="scale-down" />
-              </AspectRatio>
-              <Text className={classes.title} mt="md" weight={700}>
-                {article.title}
-              </Text>
-              <Text
-                size="xs"
-                transform="capitalize"
-                weight={500}
-                // mt={5}
-              >
-                {article?.details.split(",").map((strng) => (
-                  <Badge
-                    key={strng}
-                    mr={10}
-                    mt={10}
-                    size="xs"
-                    color="yellow"
-                    variant="outline"
-                    // gradient={{ from: "blue", to: "red" }}
-                  >
-                    {strng}
-                  </Badge>
-                ))}
-              </Text>
-            </Card>
+              <Card p="md" radius="md" className={classes.card}>
+                <AspectRatio
+                  ratio={1920 / 1080}
+                  className={classes.imageWrapper}
+                >
+                  <Image src={article.image} alt="" fit="scale-down" />
+                </AspectRatio>
+                <Text className={classes.title} mt="md" weight={700}>
+                  {article.title}
+                </Text>
+                <Text
+                  size="xs"
+                  transform="capitalize"
+                  weight={500}
+                  // mt={5}
+                >
+                  {article?.details.split(",").map((strng) => (
+                    <Badge
+                      key={strng}
+                      mr={10}
+                      mt={10}
+                      size="xs"
+                      color="yellow"
+                      variant="outline"
+                      // gradient={{ from: "blue", to: "red" }}
+                    >
+                      {strng}
+                    </Badge>
+                  ))}
+                </Text>
+              </Card>
+            </Link>
           ))}
         </SimpleGrid>
       ) : (

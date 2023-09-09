@@ -3,7 +3,6 @@ import { createStyles, rem } from "@mantine/core";
 import About from "./components/about";
 import Hero from "./components/hero";
 import ProjectItems from "./components/projects";
-import EmailBanner from "./components/banner";
 import Frameworks from "./components/frameworks";
 
 const useStyles = createStyles((theme) => ({
@@ -120,7 +119,7 @@ const HomePage = () => {
       <Hero />
       <About />
       <ProjectItems />
-      <EmailBanner />
+      {/* <EmailBanner /> */}
       <Frameworks />
     </>
   );

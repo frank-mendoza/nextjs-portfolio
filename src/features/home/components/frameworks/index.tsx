@@ -89,12 +89,6 @@ const Frameworks = () => {
               </Text>
             )}
           </Text>
-
-          {/* <CustomButton
-        text="Get started"
-        size="lg"
-        onClick={() => console.log("")}
-      /> */}
         </Col>
         <Col span={12}>
           <SimpleGrid

@@ -3,6 +3,8 @@ import { createStyles, rem } from "@mantine/core";
 export default createStyles((theme) => ({
   wrapper: {
     position: "relative",
+    boxSizing: "border-box",
+    overflow: "hidden",
     paddingTop: rem(60),
     paddingBottom: rem(50),
 

@@ -7,6 +7,7 @@ import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { CustomButton } from "@/components";
 import { useRouter } from "next/navigation";
 import NavProvider from "@/components/navProvider";
+import Link from "next/link";
 
 const useStyles = createStyles(() => ({
   textWrap: {
@@ -42,11 +43,13 @@ const ContactMessage = () => {
           <Text mb={20} size="lg" mt={0} weight={500}>
             Thank you for messaging.
           </Text>
-          <CustomButton
-            onClick={() => router.push("/")}
-            size="lg"
-            text="Take me back to home page"
-          />
+          <Link href="/">
+            <CustomButton
+              onClick={() => ""}
+              size="lg"
+              text="Take me back to home page"
+            />
+          </Link>
         </Group>
       </Container>
     </NavProvider>

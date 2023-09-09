@@ -8,12 +8,14 @@ import {
   Container,
   rem,
   Card,
+  Group,
 } from "@mantine/core";
 import bg from "@/assets/images/stacked-waves-haikei.svg";
 import bgDark from "@/assets/images/stacked-waves-haikei-dark.svg";
 import { useRouter } from "next/navigation";
 import { heroData } from "@/mockData";
 import { Controls, Player } from "@lottiefiles/react-lottie-player";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   imageWrap: {
@@ -27,12 +29,16 @@ const useStyles = createStyles((theme) => ({
     marginTop: rem(-56),
     paddingTop: rem(100),
     paddingBottom: rem(100),
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     [theme.fn.smallerThan("sm")]: {
       paddingTop: rem(200),
       paddingBottom: rem(200),
     },
     [theme.fn.smallerThan("xs")]: {
-      height: "calc(100vh + 56px)",
+      height: "100vh",
       // // paddingTop: rem(140),
       // paddingBottom: rem(120),
     },
@@ -177,21 +183,23 @@ const Hero = () => {
           <Title className={classes.title}>Hello there!, I'm Frank</Title>
 
           <div className={classes.controls}>
-            <Button
-              className={classes.control}
-              size="lg"
-              variant="default"
-              color="gray"
-              onClick={() => router.push("/contact")}
-            >
-              Contact now
-            </Button>
-            <CustomButton
-              className={classes.control}
-              text="Check Projects"
-              size="lg"
-              onClick={() => router.push("/projects")}
-            />
+            <Link className={classes.control} href="/contact">
+              <Button
+                size="lg"
+                variant="default"
+                color="gray"
+                onClick={() => ""}
+              >
+                Contact now
+              </Button>
+            </Link>
+            <Link href="/projects" className={classes.control}>
+              <CustomButton
+                text="Check Projects"
+                size="lg"
+                onClick={() => ""}
+              />
+            </Link>
           </div>
         </div>
       </Container>

@@ -126,7 +126,6 @@ const HeaderMiddle = () => {
   const { classes, cx } = useStyles();
 
   const pathname = usePathname();
-  console.log(pathname);
 
   useEffect(() => {
     let path = pathname;
@@ -136,7 +135,6 @@ const HeaderMiddle = () => {
       path = projectPath;
     }
 
-    console.log(path);
     setActive(path);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);

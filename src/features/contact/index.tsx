@@ -209,7 +209,7 @@ const Contact = () => {
             align="center"
             className={classes.contacts}
             position="center"
-            style={{ maxHeight: "300px", maxWidth: "300px" }}
+            style={{ maxWidth: "300px" }}
           >
             {/* <Text fz="lg" fw={700} className={classes.title}>
               Contact information
@@ -273,7 +273,7 @@ const Contact = () => {
                   className={classes.control}
                   text="Send message"
                   type="submit"
-                  onClick={() => console.log("")}
+                  onClick={() => ""}
                 />
               </Group>
             </div>

@@ -1,14 +1,4 @@
-import {
-  createStyles,
-  Text,
-  Title,
-  Image,
-  rem,
-  Container,
-} from "@mantine/core";
-import image from "@/assets/images/email-banner.svg";
-import { CustomButton } from "@/components";
-import { useRouter } from "next/navigation";
+import { createStyles, rem, Container } from "@mantine/core";
 
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
@@ -29,64 +19,13 @@ const useStyles = createStyles((theme) => ({
       padding: theme.spacing.xl,
     },
   },
-
-  image: {
-    maxWidth: "40%",
-
-    [theme.fn.smallerThan("sm")]: {
-      maxWidth: "100%",
-    },
-  },
-
-  body: {
-    paddingRight: `calc(${theme.spacing.xl} * 4)`,
-
-    [theme.fn.smallerThan("sm")]: {
-      paddingRight: 0,
-      marginTop: theme.spacing.xl,
-    },
-  },
-
-  title: {
-    color: theme.colorScheme === "dark" ? theme.white : theme.black,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    lineHeight: 1,
-    marginBottom: theme.spacing.md,
-  },
-
-  controls: {
-    display: "flex",
-    marginTop: theme.spacing.xl,
-  },
-
-  inputWrapper: {
-    width: "100%",
-    flex: "1",
-  },
-
-  input: {
-    borderTopRightRadius: 0,
-    borderBottomRightRadius: 0,
-    borderRight: 0,
-  },
-
-  control: {
-    borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 0,
-  },
 }));
 
 const EmailBanner = () => {
   const { classes } = useStyles();
-  const router = useRouter();
   return (
     <>
       <Container className={classes.wrapper} size={1000} mt={30}>
-        <div className={classes.body}>
-          <Text className={classes.title} size="xl" weight={600}>
-            Makes user interface and api logic to work
-          </Text>
-        </div>
         <Player
           autoplay
           loop

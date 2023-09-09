@@ -113,13 +113,7 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
   return itemDetails ? (
     <Container size={1000} py="xl">
       <div className={classes.inner}>
-        <Group
-          position="center"
-          align="center"
-          mr={50}
-          px={60}
-          className={classes.imageWrapper}
-        >
+        <Group align="center" mr={50} px={60} className={classes.imageWrapper}>
           <Image
             src={itemDetails?.image}
             //   className={classes.image}
@@ -141,8 +135,9 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
           <Text weight={600} mt={5}>
             {itemDetails?.company}
           </Text>
-          <Text mt={5} size='xs' weight={500} color="dimmed">
-            Project Type: {itemDetails?.type === 0 ? "Personal" : "Member on a Team"}
+          <Text mt={5} size="xs" weight={500} color="dimmed">
+            Project Type:{" "}
+            {itemDetails?.type === 0 ? "Personal" : "Member on a Team"}
           </Text>
           <Text color="dimmed" mt="sm" maw={450}>
             {itemDetails?.details.split(",").map((strng) => (
@@ -161,29 +156,6 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
             ))}
           </Text>
 
-          {/* <List
-            mt={30}
-            spacing="sm"
-            size="sm"
-            icon={
-              <ThemeIcon size={20} radius="xl" color="yellow">
-                <IconCheck size={rem(12)} stroke={1.5} />
-              </ThemeIcon>
-            }
-          >
-            <List.Item>
-              <b>TypeScript based</b> – build type safe applications, all
-              components and hooks export types
-            </List.Item>
-            <List.Item>
-              <b>Free and open source</b> – all packages have MIT license, you
-              can use Mantine in any project
-            </List.Item>
-            <List.Item>
-              <b>No annoying focus ring</b> – focus ring will appear only when
-              user navigates with keyboard
-            </List.Item>
-          </List> */}
           <Group mt={30}>
             <Button
               size="lg"
