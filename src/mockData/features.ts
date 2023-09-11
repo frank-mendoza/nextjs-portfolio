@@ -144,7 +144,7 @@ export const features = [
   },
   {
     icon: NextAuth.src,
-    title: "React Native",
+    title: "Next Auth",
     description: "",
     color: "white",
     type: "fe",
