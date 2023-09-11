@@ -1,20 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import { CustomButton } from "@/components";
-import {
-  createStyles,
-  Title,
-  Text,
-  Button,
-  Container,
-  rem,
-  Card,
-  Group,
-} from "@mantine/core";
+import { createStyles, Title, Button, Container, rem } from "@mantine/core";
 import bg from "@/assets/images/stacked-waves-haikei.svg";
 import bgDark from "@/assets/images/stacked-waves-haikei-dark.svg";
-import { useRouter } from "next/navigation";
-import { heroData } from "@/mockData";
-import { Controls, Player } from "@lottiefiles/react-lottie-player";
+
 import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
@@ -152,29 +141,6 @@ const useStyles = createStyles((theme) => ({
 
 const Hero = () => {
   const { classes, theme } = useStyles();
-  const router = useRouter();
-
-  const features = heroData.map((feature) => (
-    <Card
-      key={feature.title}
-      shadow="md"
-      radius="md"
-      className={classes.card}
-      padding="xl"
-    >
-      <feature.icon
-        size={rem(50)}
-        stroke={2}
-        color={theme.colors[theme.primaryColor][2]}
-      />
-      <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
-        {feature.title}
-      </Text>
-      <Text fz="sm" c="dimmed" mt="sm">
-        {feature.description}
-      </Text>
-    </Card>
-  ));
 
   return (
     <div className={classes.imageWrap}>
@@ -183,22 +149,23 @@ const Hero = () => {
           <Title className={classes.title}>Hello there!, I'm Frank</Title>
 
           <div className={classes.controls}>
-            <Link className={classes.control} href="/contact">
+            <Link href="/projects" className={classes.control}>
               <Button
                 size="lg"
                 variant="default"
                 color="gray"
                 onClick={() => ""}
               >
-                Contact now
+                View Projects
               </Button>
             </Link>
-            <Link href="/projects" className={classes.control}>
-              <CustomButton
-                text="Check Projects"
-                size="lg"
-                onClick={() => ""}
-              />
+            <Link
+              className={classes.control}
+              href="/Frank-Mendoza-CV.pdf"
+              download
+              target="_blank"
+            >
+              <CustomButton text="Download CV" size="lg" onClick={() => ""} />
             </Link>
           </div>
         </div>
