@@ -99,6 +99,7 @@ const useStyles = createStyles((theme) => ({
     marginTop: theme.spacing.lg,
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
 
     [theme.fn.smallerThan("xs")]: {
       flexDirection: "column",
@@ -106,6 +107,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   control: {
+    textDecoration: "none",
     "&:not(:first-of-type)": {
       marginLeft: theme.spacing.md,
     },
@@ -113,6 +115,7 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("xs")]: {
       height: rem(42),
       fontSize: theme.fontSizes.md,
+      width: "100%",
 
       "&:not(:first-of-type)": {
         marginTop: theme.spacing.md,
@@ -152,6 +155,7 @@ const Hero = () => {
             <Link href="/projects" className={classes.control}>
               <Button
                 size="lg"
+                fullWidth
                 variant="default"
                 color="gray"
                 onClick={() => ""}
@@ -165,7 +169,12 @@ const Hero = () => {
               download
               target="_blank"
             >
-              <CustomButton text="Download CV" size="lg" onClick={() => ""} />
+              <CustomButton
+                fullWidth
+                text="Download CV"
+                size="lg"
+                onClick={() => ""}
+              />
             </Link>
           </div>
         </div>
