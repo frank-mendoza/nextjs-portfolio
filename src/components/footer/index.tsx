@@ -56,11 +56,11 @@ const FooterSocial = () => {
       <Container className={classes.inner}>
         <Group spacing={10}>
           <Image src={Logo.src} alt="fm" width={20} height={20} />
-          <Text weight={700} className={classes.title} size='md'>
+          <Text weight={700} className={classes.title} size="md">
             FM
           </Text>
         </Group>
-        <Text color="dimmed" size="xs">
+        <Text color="dimmed" size="xs" className={classes.links}>
           © 2023 Frank Dev. All rights reserved.
         </Text>
         <Group spacing={0} className={classes.links} position="right" noWrap>
@@ -80,30 +80,7 @@ const FooterSocial = () => {
           >
             <IconBrandLinkedin size="1.1rem" stroke={1.5} />
           </ActionIcon>
-          {/* <ActionIcon
-            size="lg"
-            component="a"
-            target="_blank"
-            href="https://m.me/fank.mendoza.965580"
-          >
-            <IconBrandMessenger size="1.1rem" stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon
-            size="lg"
-            component="a"
-            target="_blank"
-            href="https://wa.me/639506648307"
-          >
-            <IconBrandWhatsapp size="1.1rem" stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon
-            size="lg"
-            component="a"
-            target="_blank"
-            href="https://join.skype.com/invite/xX4Vy6VXFaP0"
-          >
-            <IconBrandSkype size="1.1rem" stroke={1.5} />
-          </ActionIcon> */}
+
           <ActionIcon
             size="md"
             onClick={(e) => {

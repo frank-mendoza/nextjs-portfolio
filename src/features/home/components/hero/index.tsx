@@ -149,7 +149,7 @@ const Hero = () => {
     <div className={classes.imageWrap}>
       <Container className={classes.wrapper} size={1000}>
         <div className={classes.inner}>
-          <Title className={classes.title}>Hello there!, I'm Frank</Title>
+          <Title className={classes.title}>Hello, there!, I'm Frank</Title>
 
           <div className={classes.controls}>
             <Link href="/projects" className={classes.control}>

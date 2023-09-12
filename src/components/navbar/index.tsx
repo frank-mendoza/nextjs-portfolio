@@ -32,7 +32,7 @@ import Link from "next/link";
 const useStyles = createStyles((theme) => ({
   header: {
     [theme.fn.smallerThan("sm")]: {
-      height: "4rem",
+      height: "100vh",
     },
   },
   inner: {

@@ -86,15 +86,15 @@ const useStyles = createStyles((theme) => {
       borderRadius: theme.radius.lg,
       backgroundImage:
         theme.colorScheme === "dark" ? `url(${bgDark.src})` : `url(${bg.src})`,
-      // background: " #FFF3BF",
-      // background: "linear-gradient(#fff, #FFF3BF)",
-      // border: `${rem(1)} solid transparent`,
       padding: theme.spacing.xl,
-      // flex: `0 0 ${rem(280)}`,
 
       [BREAKPOINT]: {
         marginBottom: theme.spacing.sm,
         paddingLeft: theme.spacing.md,
+      },
+      [theme.fn.smallerThan("xs")]: {
+        maxWidth: "100%",
+        maxHeight: "300px",
       },
     },
 
@@ -205,12 +205,7 @@ const Contact = () => {
       <Paper shadow="none" radius="lg">
         {error !== "" && <AlertDialog error={error} />}
         <div className={classes.wrapper}>
-          <Group
-            align="center"
-            className={classes.contacts}
-            position="center"
-            style={{ maxWidth: "300px" }}
-          >
+          <Group align="center" className={classes.contacts} position="center">
             {/* <Text fz="lg" fw={700} className={classes.title}>
               Contact information
             </Text> */}
@@ -273,6 +268,7 @@ const Contact = () => {
                   className={classes.control}
                   text="Send message"
                   type="submit"
+                  size="lg"
                   onClick={() => ""}
                 />
               </Group>
