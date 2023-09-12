@@ -152,7 +152,7 @@ export function NavbarDrawer({ openDrawer, close }: NavProps) {
       withCloseButton={false}
       className={classes.drawer}
     >
-      <Navbar width={{ sm: 300 }} p={0}>
+      <Navbar withBorder={false} width={{ sm: 300 }} height="100%" p={0}>
         <Navbar.Section grow mt={50}>
           <Stack justify="center" spacing={0}>
             {links}
