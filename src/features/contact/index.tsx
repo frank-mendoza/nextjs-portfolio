@@ -216,7 +216,7 @@ const Contact = () => {
               keepLastFrame
               speed={0.6}
               src="https://assets8.lottiefiles.com/packages/lf20_abqysclq.json"
-              style={{ maxHeight: "300px", maxWidth: "300px" }}
+              style={{ maxHeight: "300px", width: "300px" }}
             >
               <Controls visible={false} />
             </Player>
