@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   imageWrap: {
-    height: "100%",
+    height: "100vh",
     width: "100%",
     backgroundImage:
       theme.colorScheme === "dark" ? `url(${bgDark.src})` : `url(${bg.src})`,
@@ -26,11 +26,11 @@ const useStyles = createStyles((theme) => ({
       paddingTop: rem(200),
       paddingBottom: rem(200),
     },
-    [theme.fn.smallerThan("xs")]: {
-      height: "100vh",
-      // // paddingTop: rem(140),
-      // paddingBottom: rem(120),
-    },
+    // [theme.fn.smallerThan("xs")]: {
+    //   height: "100vh",
+    //   // // paddingTop: rem(140),
+    //   // paddingBottom: rem(120),
+    // },
   },
   wrapper: {
     position: "relative",
@@ -51,7 +51,7 @@ const useStyles = createStyles((theme) => ({
   title: {
     textAlign: "center",
     fontWeight: 800,
-    fontSize: rem(40),
+    fontSize: rem(60),
     letterSpacing: -1,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
     marginBottom: theme.spacing.xs,
@@ -149,7 +149,10 @@ const Hero = () => {
     <div className={classes.imageWrap}>
       <Container className={classes.wrapper} size={1000}>
         <div className={classes.inner}>
-          <Title className={classes.title}>Hello, there!, I'm Frank</Title>
+          <Title className={classes.title}>
+            Hello, there!,
+            <br /> I'm Frank
+          </Title>
 
           <div className={classes.controls}>
             <Link href="/projects" className={classes.control}>
